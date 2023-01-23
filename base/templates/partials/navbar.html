@@ -11,7 +11,7 @@
   <div class="container-fluid">
     <img class="img-thumbnail img-fluid" src="{% static 'img/Logo.jpg' %}" width="120" height="30"> 
     
-    <ul><a class="navbar-brand" href="#">Estandarizador</a></ul>
+    <ul><a class="navbar-brand" href="{% url 'principal' %}">Estandarizador</a></ul>
   
   <form class="container-fluid justify-content-start">
    
@@ -23,8 +23,6 @@
 
         <ul class="dropdown-menu"> 
                <li><a class="dropdown-item" <a href="{% url 'usuarios_crear' %}">Nuevo</a></li>
-               <li><a class="dropdown-item" href="#">Editar</a></li>
-               <li><a class="dropdown-item" href="#">Buscar</a></li>
                <li><a class="dropdown-item" href="#">Permisos</a></li>
            </ul>
       </div> 
@@ -36,11 +34,7 @@
                  </button>
             <ul class="dropdown-menu">                   
                 <li><a class="dropdown-item" <a href="{% url 'receta' %}">Nuevo</a></li>
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Buscar</a></li>
-                <li><a class="dropdown-item" href="#">Exportar</a></li>
-                <li><a class="dropdown-item" href="#">Importar</a></li>
-                <li><a class="dropdown-item" href="#">Ingrediente</a></li>
+                <li><a class="dropdown-item" href="{% url 'ingrediente' %}">Ingrediente</a></li>
                 <li><a class="dropdown-item" href="{% url 'componente' %}" class="nav-link">Componente</a>
                 </li>
                 

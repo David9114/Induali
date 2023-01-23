@@ -42,6 +42,10 @@ body {
     border: 2px solid black;
 }
 
+.container-general {
+    opacity: 0.9;
+}
+
 .container-tablaIngrediente{
     position:auto;
     opacity: 0.9;

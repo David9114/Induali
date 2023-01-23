@@ -3,6 +3,7 @@ from django.views.defaults import page_not_found
 from django.contrib import messages
 from django.contrib.auth import logout
 
+
 def principal(request):
     titulo="Menu principal"
     context={
@@ -18,3 +19,4 @@ def error_404(request,exception):
 def logout_user(request):
     logout(request)
     return redirect('inicio')
+

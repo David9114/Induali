@@ -2,60 +2,49 @@
 
 {% load static %}
 {% block contenido %}
-      
-   <div class="container-usuario p-3 mb-2 bg-white text-dark row g-6 border rounded">
-  
-    <center><h3>Crear Ingrediente</h3></center>
-              <form class="row g-12" style="margin:100 ">
-                
-                <div class="col-5">
-                    <label for="inputAddress" class="form-label">Codigo Ingrediente</label>
-                    <input type="number" class="form-control" id="inputAddress" placeholder="Introduzca el codigo del ingrediente">
-                  </div>
-                  <div class="col-5">
-                    <label for="inputAddress2" class="form-label">Nombre Ingrediente</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Introduzca el nombre del ingrediente"">
-                  </div>
-                  <div class="col-3">
-                      <label for="inputAddress2" class="form-label">Unidad de medida</label>
-                      <input type="text" class="form-control" id="inputAddress2" placeholder="Introduzca la UM del ingrediente">
-                    </div>
-                <div class="col-md-4">
-                  <label for="inputAddress2" class="form-label">Cantidad de materia prima</label>
-                  <input type="text" class="form-control" id="inputAddress2" placeholder="Introduzca la CMP del ingrediente">
-                </div>
-              </form>
-            <center>
-              <form class="form-inline my-3 my-lg-3">
-              <button type="button" class="btn btn-primary"><i class="bi bi-card-list"></i> CREAR INGREDIENTE </button>
-            </form>
-          </center>
+</br> 
+</br> 
+</br> 
+</br> 
+</br> 
+<section class="col-lg-12 table">
+  <div class="container container-general  p-3 mb-2 bg-white text-dark row g-6 border rounded">
+    <div class="row align-items-start">
+      <div class="col-12 ">
+        <h3 class="fw-bold mt-5 text-center">Crear Ingrediente</h3>
+        <hr class="border border-white border-2 opacity-50"/>
+        <form >
+          <div class="row mt-5 p-3 shadow-lg rounded bg-white">
+            <div class="row">
+              <div class="col-12 col-md-6 col-xl-6 mb-3">
+                <label for="poliza" class="form-label">Codigo Ingrediente:</label>
+                <input type="number" class="form-control required" id="idIngrediente" name="idIngrediente" placeholder="Escribe" autofocus="">
+              </div>
+              <div class="col-12 col-md-6 col-xl-6 mb-3">
+                <label for="idCompany" class="form-label">Nombre Ingrediente:</label>
+                <input type="text" class="form-control required" id="nameIngrediente" name="nameIngrediente"placeholder="Introduzca el nombre del ingrediente"">
+              </div>
             </div>
-
-            <tbody>
-
-              {% for ingrediente in ingredientes %}
-              <tr>
-          
-                {% if ingrediente.estado != '3' %}
-                <td >{{ingrediente.codIngrediente}}</td>
-                <td>{{ingrediente.nomIngrediente}}</td>
-                <td>{{ingrediente.unidadMedida}}</td>
-                <td>{{ingrediente.cantidadMateriaPrima}}</td>
-                <td>{{ingrediente.estado}}</td>
-                <td><a class="btn btn-primary" href="{% url 'ingrediente-crear' ingrediente.id  %}"><i class="fas fa-edit"></i></a>
-                  
-                </td>
-                {% endif %}
-          
-          
-          
-          
-              </tr>
-              {% endfor %}
-          
-          
-          
-            </tbody>
-          
-        {% endblock contenido %}
+            <div class="row">
+              <div class="col-12 col-md-6 col-xl-6 mb-3">
+                <label for="poliza" class="form-label">Unidad de medida:</label>
+                <input type="number" class="form-control required" id="unidad" name="unidad" placeholder="Escribe" autofocus="">
+              </div>
+              <div class="col-12 col-md-6 col-xl-6 mb-3">
+                <label for="idCompany" class="form-label">Cantidad de materia prima:</label>
+                <input type="text" class="form-control required" id="cantMP" name="cantMP"placeholder="Introduzca el nombre del ingrediente"">
+              </div>
+            </div>
+            <hr />
+            <div class="row text-center">
+              <div class="col-12 col-md-12 col-xl-12 mb-3">
+                <button type="button" class="btn btn-primary">CREAR INGREDIENTE </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>          
+</section>          
+  {% endblock contenido %}

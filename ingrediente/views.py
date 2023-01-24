@@ -11,22 +11,29 @@ def ingrediente(request):
 
 
 def ingrediente_crear(request):
-    titulo="Ingrediente - Crear"
-    if request.method == "POST":
-        form= IngredienteForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('ingrediente')
-        else:
-            print("Error")
-    else:
-        form= IngredienteForm()
-    context={
-        'titulo':titulo,
-        'form':form
-    }
-    return render(request,'ingrediente/ingredienteCrear.html',context)
+    formulario = IngredienteForm(request.POST or None, request.FILES or None)
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('ingrediente')
+    return render(request, 'ingrediente/ingredienteCrear.html', {'formulario': formulario})
 
-def ingredientes(request):
-    ingredientes = Ingrediente.objects.all()
-    return render(request,'ingrediente/ingrediente.html',{'ingredientes' : ingredientes})
+# def ingrediente_crear(request):
+#     titulo="Ingrediente - Crear"
+#     if request.method == "POST":
+#         form= IngredienteForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('ingrediente')
+#         else:
+#             print("Error")
+#     else:
+#         form= IngredienteForm()
+#     context={
+#         'titulo':titulo,
+#         'form':form
+#     }
+#     return render(request,'ingrediente/ingredienteCrear.html',context)
+
+# def ingredientes(request):
+#     ingredientes = Ingrediente.objects.all()
+#     return render(request,'ingrediente/ingrediente.html',{'ingredientes' : ingredientes})

@@ -13,32 +13,29 @@
       <div class="col-12 ">
         <h3 class="fw-bold mt-5 text-center">Crear Ingrediente</h3>
         <hr class="border border-white border-2 opacity-50"/>
-        <form >
+        <form enctype="multipart/form-data" method="post">
           <div class="row mt-5 p-3 shadow-lg rounded bg-white">
             <div class="row">
+              {% csrf_token %}
+              {% for campo in formulario %}
               <div class="col-12 col-md-6 col-xl-6 mb-3">
-                <label for="poliza" class="form-label">Codigo Ingrediente:</label>
-                <input type="number" class="form-control required" id="idIngrediente" name="idIngrediente" placeholder="Escribe" autofocus="">
+                <label for="poliza" class="form-label">{{ campo.label  }}:</label>
+                <input 
+                  type="{{ campo.field.widget.input_type  }}" 
+                  class="form-control required" 
+                  id="" 
+                  name="{{ campo.name  }}" 
+                  placeholder="Escribe" 
+                >
               </div>
-              <div class="col-12 col-md-6 col-xl-6 mb-3">
-                <label for="idCompany" class="form-label">Nombre Ingrediente:</label>
-                <input type="text" class="form-control required" id="nameIngrediente" name="nameIngrediente"placeholder="Introduzca el nombre del ingrediente"">
-              </div>
+              {% endfor %}
+
             </div>
-            <div class="row">
-              <div class="col-12 col-md-6 col-xl-6 mb-3">
-                <label for="poliza" class="form-label">Unidad de medida:</label>
-                <input type="number" class="form-control required" id="unidad" name="unidad" placeholder="Escribe" autofocus="">
-              </div>
-              <div class="col-12 col-md-6 col-xl-6 mb-3">
-                <label for="idCompany" class="form-label">Cantidad de materia prima:</label>
-                <input type="text" class="form-control required" id="cantMP" name="cantMP"placeholder="Introduzca el nombre del ingrediente"">
-              </div>
-            </div>
+            <div class="col-12 help-text">{{ campo.errors }}</div>
             <hr />
             <div class="row text-center">
               <div class="col-12 col-md-12 col-xl-12 mb-3">
-                <button type="button" class="btn btn-primary">CREAR INGREDIENTE </button>
+                <input type="submit" class="btn btn-primary" value="CREAR INGREDIENTE">
               </div>
             </div>
           </div>

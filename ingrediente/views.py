@@ -6,10 +6,8 @@ from ingrediente.forms import IngredienteForm
 # Create your views here.
 
 def ingrediente(request):
-    context={
-        
-        }
-    return render(request,'ingrediente/ingrediente.html',context)
+    ingrediente = Ingrediente.objects.all()
+    return render(request,'ingrediente/ingrediente.html',{'ingrediente': ingrediente})
 
 
 def ingrediente_crear(request):
@@ -29,3 +27,6 @@ def ingrediente_crear(request):
     }
     return render(request,'ingrediente/ingredienteCrear.html',context)
 
+def ingredientes(request):
+    ingredientes = Ingrediente.objects.all()
+    return render(request,'ingrediente/ingrediente.html',{'ingredientes' : ingredientes})

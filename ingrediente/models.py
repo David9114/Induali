@@ -9,3 +9,7 @@ class Ingrediente (models.Model):
     unidadMedida=models.CharField(max_length=50, verbose_name="Unidad Medida")
     cantidadMateriaPrima=models.CharField(max_length=50, verbose_name="Cantidad Materia Prima")
     
+
+    def __str__(self):
+        fila = "Nombre: "+ self.nomIngrediente + " - Unidad: " + self.unidadMedida 
+        return fila

@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from componente.forms import ComponenteForm
 from componente.models import Componente
-from .models import Ingredientes
 
 # Create your views here.
 def componente(request):
@@ -13,7 +12,7 @@ def componente(request):
     }
     return render(request,'componente/componente.html',context)
 
-def ingredientes(request):
-    ingredientes = Ingredientes.objects.all()
-    print(ingredientes)
-    return render(request,'ingrediente/ingrediente.html')
+# def ingredientes(request):
+#     ingredientes = Ingredientes.objects.all()
+#     print(ingredientes)
+#     return render(request,'ingrediente/ingrediente.html')
